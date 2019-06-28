@@ -9,6 +9,7 @@
   "author": "krseisenh@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.0.0",
     "firebase-admin": "^8.2.0"
   }
 }

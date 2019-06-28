@@ -1,10 +1,13 @@
+"use strict";
+
+require("dotenv").config();
 const firebase = require("firebase-admin");
 
-const serviceAccount = require("../ambient-net-863-firebase-adminsdk-bqnak-59fdaa9742.json");
+const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUT_DIR);
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
-  databaseURL: "https://ambient-net-863.firebaseio.com"
+  databaseURL: process.env.FIREBASE_DB_URL
 });
 
 const db = firebase.firestore();
@@ -60,7 +63,7 @@ user
 let updateaTuringRef = db.collection("users").doc("aturing");
 
 let updateAlan = updateaTuringRef.update({
-  die: 2002
+  die: 2002 // add new field
 });
 
 // TODO: DELETE INDIVIDUAL DOCUMENT
